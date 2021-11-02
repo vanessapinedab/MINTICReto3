@@ -16,42 +16,44 @@ public class Message implements Serializable {
         private Integer idMessage;
         private String messageText;
 
-        public Integer getIdMessage() {
-                return idMessage;
-        }
+    public Integer getIdMessage() {
+        return idMessage;
+    }
 
-        public void setIdMessage(Integer idMessage) {
-                this.idMessage = idMessage;
-        }
+    public void setIdMessage(Integer idMessage) {
+        this.idMessage = idMessage;
+    }
 
-        public String getMessageText() {
-                return messageText;
-        }
+    public String getMessageText() {
+        return messageText;
+    }
 
-        public void setMessageText(String messageText) {
-                this.messageText = messageText;
-        }
+    public void setMessageText(String messageText) {
+        this.messageText = messageText;
+    }
 
-        public Partyroom getPartyroom() {
-                return partyroom;
-        }
+    public Doctor getDoctor() {
+        return doctor;
+    }
 
-        public void setPartyroom(Partyroom partyroom) {
-                this.partyroom = partyroom;
-        }
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
 
-        public Client getClient() {
-                return client;
-        }
+    public Client getClient() {
+        return client;
+    }
 
-        public void setClient(Client client) {
-                this.client = client;
-        }
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+        
 
         @ManyToOne
-        @JoinColumn(name="idPartyroom")
+        @JoinColumn(name="idDoctor")
         @JsonIgnoreProperties({"messages", "client", "reservations"})
-        private Partyroom partyroom;
+        private Doctor doctor;
 
         @ManyToOne
         @JoinColumn(name="idClient")

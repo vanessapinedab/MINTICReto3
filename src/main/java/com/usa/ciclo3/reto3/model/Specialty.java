@@ -12,8 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "category")
-public class Category implements Serializable {
+@Table(name = "specialty")
+public class Specialty implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -44,17 +44,18 @@ public class Category implements Serializable {
         this.description = description;
     }
 
-    public List<Partyroom> getPartyrooms() {
-        return partyrooms;
+    public List<Doctor> getDoctors() {
+        return doctors;
     }
 
-    public void setPartyrooms(List<Partyroom> partyroom) {
-        this.partyrooms = partyroom;
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
     }
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
-    @JsonIgnoreProperties("category")
-    private List<Partyroom> partyrooms;
+   
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "specialty")
+    @JsonIgnoreProperties("specialty")
+    private List<Doctor> doctors;
 
 
 }

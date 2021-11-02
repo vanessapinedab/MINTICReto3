@@ -3,8 +3,8 @@ package com.usa.ciclo3.reto3.web;
 import java.util.List;
 import java.util.Optional;
 
-import com.usa.ciclo3.reto3.model.Partyroom;
-import com.usa.ciclo3.reto3.services.PartyroomServices;
+import com.usa.ciclo3.reto3.model.Doctor;
+import com.usa.ciclo3.reto3.services.DoctorServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,44 +20,44 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/Partyroom")
+@RequestMapping("/api/Doctor")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 
-public class PartyroomControllerWeb {
+public class DoctorControllerWeb {
 
     @Autowired
-    private PartyroomServices partyroomServices;
+    private DoctorServices doctorServices;
 
     @GetMapping("/all")
-    public List<Partyroom> getPartyroom(){
+    public List<Doctor> getDoctor(){
 
-        return partyroomServices.getAll();
+        return doctorServices.getAll();
     }
 
-    @GetMapping("/{idPartyroom}")
-    public Optional<Partyroom> getPartyroom (@PathVariable("id") int id) {
+    @GetMapping("/{idDoctor}")
+    public Optional<Doctor> getDoctor (@PathVariable("id") int id) {
 
-        return partyroomServices.getPartyroom(id);
+        return doctorServices.getDoctor(id);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Partyroom save(@RequestBody Partyroom partyroom) {
+    public Doctor save(@RequestBody Doctor doctor) {
 
-        return partyroomServices.save(partyroom);
+        return doctorServices.save(doctor);
     }
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
 
-    public Partyroom update(@RequestBody Partyroom partyroom) {
+    public Doctor update(@RequestBody Doctor doctor) {
 
-        return partyroomServices.update(partyroom);
+        return doctorServices.update(doctor);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id) {
-        return partyroomServices.deletePartyroom(id);
+        return doctorServices.deleteDoctor(id);
     }
 
 

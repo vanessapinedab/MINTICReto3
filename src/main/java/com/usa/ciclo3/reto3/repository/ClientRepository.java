@@ -1,7 +1,7 @@
 package com.usa.ciclo3.reto3.repository;
 
 import com.usa.ciclo3.reto3.crudrepository.ClientCrudRepository;
-import com.usa.ciclo3.reto3.model.Category;
+import com.usa.ciclo3.reto3.model.Specialty;
 import com.usa.ciclo3.reto3.model.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

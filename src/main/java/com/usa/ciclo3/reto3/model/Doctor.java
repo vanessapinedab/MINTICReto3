@@ -7,15 +7,15 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "partyroom")
-public class Partyroom implements Serializable {
+@Table(name = "doctor")
+public class Doctor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String owner;
-    private Integer capacity;
+    private String department;
+    private Integer year;
     private String description;
 
     public Integer getId() {
@@ -34,20 +34,20 @@ public class Partyroom implements Serializable {
         this.name = name;
     }
 
-    public String getOwner() {
-        return owner;
+    public String getDepartment() {
+        return department;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
-    public Integer getCapacity() {
-        return capacity;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     public String getDescription() {
@@ -58,12 +58,12 @@ public class Partyroom implements Serializable {
         this.description = description;
     }
 
-    public Category getCategory() {
-        return category;
+    public Specialty getSpecialty() {
+        return specialty;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
     }
 
     public List<Message> getMessages() {
@@ -83,16 +83,16 @@ public class Partyroom implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "idCategory")
-    @JsonIgnoreProperties("partyrooms")
-    private Category category;
+    @JoinColumn(name = "idSpecialty")
+    @JsonIgnoreProperties("doctors")
+    private Specialty specialty;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "partyroom")
-    @JsonIgnoreProperties({"partyroom", "client"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
+    @JsonIgnoreProperties({"doctor", "client"})
     private List<Message> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "partyroom")
-    @JsonIgnoreProperties({"partyroom", "client"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
+    @JsonIgnoreProperties({"doctor", "client"})
     private List<Reservation> reservations;
 
 }

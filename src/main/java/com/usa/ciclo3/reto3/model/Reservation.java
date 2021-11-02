@@ -17,66 +17,68 @@ public class Reservation implements Serializable {
         private Date devolutionDate;
         private String status="created";
 
-        public Integer getIdReservation() {
-                return idReservation;
-        }
+    public Integer getIdReservation() {
+        return idReservation;
+    }
 
-        public void setIdReservation(Integer idReservation) {
-                this.idReservation = idReservation;
-        }
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
+    }
 
-        public Date getStartDate() {
-                return startDate;
-        }
+    public Date getStartDate() {
+        return startDate;
+    }
 
-        public void setStartDate(Date startDate) {
-                this.startDate = startDate;
-        }
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
 
-        public Date getDevolutionDate() {
-                return devolutionDate;
-        }
+    public Date getDevolutionDate() {
+        return devolutionDate;
+    }
 
-        public void setDevolutionDate(Date devolutionDate) {
-                this.devolutionDate = devolutionDate;
-        }
+    public void setDevolutionDate(Date devolutionDate) {
+        this.devolutionDate = devolutionDate;
+    }
 
-        public String getStatus() {
-                return status;
-        }
+    public String getStatus() {
+        return status;
+    }
 
-        public void setStatus(String status) {
-                this.status = status;
-        }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-        public Partyroom getPartyroom() {
-                return partyroom;
-        }
+    public Doctor getDoctor() {
+        return doctor;
+    }
 
-        public void setPartyroom(Partyroom partyroom) {
-                this.partyroom = partyroom;
-        }
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
 
-        public Client getClient() {
-                return client;
-        }
+    public Client getClient() {
+        return client;
+    }
 
-        public void setClient(Client client) {
-                this.client = client;
-        }
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
-        public String getScore() {
-                return score;
-        }
+    public String getScore() {
+        return score;
+    }
 
-        public void setScore(String score) {
-                this.score = score;
-        }
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+        
 
         @ManyToOne
         @JoinColumn(name = "id")
         @JsonIgnoreProperties("reservations")
-        private Partyroom partyroom;
+        private Doctor doctor;
 
         @ManyToOne
         @JoinColumn(name = "idClient")
